@@ -1,0 +1,34 @@
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+
+public class FindHighestSalary {
+    int id;
+    String name;
+    int salary;
+    public FindHighestSalary(int id, String name, int salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    
+    }
+    @Override
+    public String toString() {
+        return "[id=" + id + ", name=" + name + ", salary="
+                + salary + "]";
+    } 
+}
+     class Test {
+
+        public static void main(String[] args){
+            List<FindHighestSalary> employees = Arrays.asList(new FindHighestSalary(1,"Anamika", 50000), new FindHighestSalary(2,"Nitin",36750),new FindHighestSalary(3,"Sid",4200000), new FindHighestSalary(4,"virakshi", 50000));
+            FindHighestSalary maxSalary = employees.stream().max(Comparator.comparingInt(e->e.salary)).get();
+            System.out.println("Employee with highest salary: " + maxSalary);
+        }
+    }
+
+    
+    
+        
+    
+    
