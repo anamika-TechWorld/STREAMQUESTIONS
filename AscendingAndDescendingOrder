@@ -1,0 +1,40 @@
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+public class Employee {
+    int id;
+    String name;
+    int salary;
+    public Employee(int id, String name, int salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    
+    }
+    @Override
+    public String toString() {
+        return "Employee [id=" + id + ", name=" + name + ", salary="
+                + salary + "]";
+    }   
+    public class Main{
+        public static void main(String[] args){
+            List<Employee> employees = Arrays.asList(new Employee(1,"Anamika", 50000), new Employee(2,"Nitin",36750),new Employee(3,"Sid",4200000), new Employee(4,"virakshi", 50000));
+
+Collections.sort(employees,(e1,e2)->Integer.compare(e1.salary,e2.salary));
+System.out.println("Ascending");
+for(Employee e:employees){
+    System.out.println(e);
+}
+
+Collections.reverse(employees);
+System.out.println("Descending");
+for(Employee e:employees){
+     System.out.println(e);
+
+        }
+    }
+    
+}   
+}
+
