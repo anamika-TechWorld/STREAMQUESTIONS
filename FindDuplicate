@@ -1,0 +1,11 @@
+import java.util.*;
+import java.util.stream.Collectors;
+public class Duplicate{
+    public static void main(String args[]){
+    ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1,2,3,2,3,2,3,2,3,21));
+    Set<Integer>set= new HashSet<>();
+    Set<Integer>duplicates= list.stream().filter(n-> !set.add(n)).collect(Collectors.toSet());
+    System.out.println(duplicates);
+        
+    }
+}
