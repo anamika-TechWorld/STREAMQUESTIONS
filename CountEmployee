@@ -1,0 +1,23 @@
+import java.util.*;
+import java.util.stream.Collectors;
+public class EmployeeCount{
+int id;
+String name;
+String department;
+public EmployeeCount(int id, String name, String department) {
+    this.id = id;
+    this.name = name;
+    this.department = department;
+}
+}
+class DepartmentCount{
+    public static void main(String[] args){
+        List<EmployeeCount> employees= Arrays.asList(new EmployeeCount(1,"Anamika","IT"), new EmployeeCount(2,"Nitin","IT"), new EmployeeCount(3,"Sid","HR"), new EmployeeCount(4,"Virakshi","IT"), new EmployeeCount(5,"Rohit","Finance"));
+        Map<String, Long> departmentCount = employees.stream().collect(Collectors.groupingBy(e -> e.department, Collectors.counting()));
+        
+       departmentCount.forEach((department, count) ->
+        System.out.println(department + " " + count)
+);
+    }
+}
+
