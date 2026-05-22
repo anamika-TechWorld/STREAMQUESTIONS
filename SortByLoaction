@@ -1,0 +1,35 @@
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class sortingAndCount {
+    int id;
+    String name;
+    String location;
+   
+    
+sortingAndCount(int id, String name, String location) {
+        this.id = id;
+        this.name = name;
+        this.location = location;
+}
+ public String getLocation() {
+        return location;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+class counting{
+    public static void main(String[] args){
+        List<sortingAndCount> employees = Arrays.asList(    new sortingAndCount(1,"Anamika","Delhi"), new sortingAndCount(2,"Nitin","Mumbai"), new sortingAndCount(3,"Sid","Delhi"), new sortingAndCount(4,"Virakshi","Mumbai"), new sortingAndCount(5,"Rohit","Chennai"));
+           List<sortingAndCount> result =
+                employees.stream()
+                        .filter(e -> e.getLocation().equals("Delhi"))
+                        .sorted(Comparator.comparing(sortingAndCount::getName))
+                        .collect(Collectors.toList());
+        result.forEach(e->System.out.println(e.getName()+""+e.getLocation()));
+    }
+}
